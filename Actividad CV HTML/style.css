@@ -1,0 +1,68 @@
+body {
+  background-color:#0d0d0d;
+}
+
+.header{
+  background-color:#303030;
+}
+
+.header img {
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  border: 10px solid #1f1f1f;
+}
+  
+.header h1 {
+  position: relative;
+  color:white;
+  margin-left: 20px;
+  font-family: 'Trebuchet MS';
+  font-size: 40px;
+}
+
+.info{
+  background-color:#1f1f1f;
+}
+
+.info h2 {
+  position: relative;
+  color:white;
+  margin-left: 250px;
+  font-family: 'Trebuchet MS';
+  font-size: 30px;
+}
+
+.info p {
+  color: darkgray;
+  margin-left: 250px;
+  font-family: 'Trebuchet MS';
+  font-size: 22px;
+}
+
+.links{
+  background-color:#141414;
+}
+
+.links a{
+  color: whitesmoke;
+  font-family: 'Trebuchet MS';
+  font-size: 16px;
+}
+
+.links2{
+  background-color:#141414;
+}
+
+.links2 a{
+  color: whitesmoke;
+  font-family: 'Trebuchet MS';
+  font-size: 16px;
+}
+
+.links2 i{
+  margin-left: 240px;
+}
+
