@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patent:</strong>
+  <%= @truck.patent %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @truck.description %>
+</p>
+
+<p>
+  <strong>Max liters:</strong>
+  <%= @truck.max_liters %>
+</p>
+
+<%= link_to 'Edit', edit_truck_path(@truck) %> |
+<%= link_to 'Back', trucks_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Adress:</strong>
+  <%= @station.adress %>
+</p>
+
+<p>
+  <strong>Flag:</strong>
+  <%= @station.flag %>
+</p>
+
+<p>
+  <strong>Max liters:</strong>
+  <%= @station.max_liters %>
+</p>
+
+<%= link_to 'Edit', edit_station_path(@station) %> |
+<%= link_to 'Back', stations_path %>

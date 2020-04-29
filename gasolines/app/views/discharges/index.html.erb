@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Discharges</h1>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Liters</th>
+      <th>Date</th>
+      <th>Station adress</th>
+      <th>Station flag</th>
+      <th>Load date</th>
+      <th>Truck patent</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @discharges.each do |discharge| %>
+      <tr>
+        <td><%= discharge.liters %></td>
+        <td><%= discharge.date %></td>
+        <td><%= discharge.station.adress unless discharge.station.nil? %></td>
+        <td><%= discharge.station.flag unless discharge.station.nil? %></td>
+        <td><%= discharge.load.date unless discharge.load.nil? %></td>
+        <td><%= discharge.load.truck.patent unless discharge.load.truck.nil? %></td>
+        <td><%= discharge.liters %></td>
+        <td><%= link_to 'Show', discharge %></td>
+        <td><%= link_to 'Edit', edit_discharge_path(discharge) %></td>
+        <td><%= link_to 'Destroy', discharge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Discharge', new_discharge_path %>
