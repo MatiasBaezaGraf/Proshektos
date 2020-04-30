@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h3><strong><%= link_to "Back", home_index_path %></strong></h3>
+
+<h1>Social Works</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Discount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @social_works.each do |social_work| %>
+      <tr>
+        <td><%= social_work.name %></td>
+        <td><%= social_work.discount %></td>
+        <td><%= link_to 'Show', social_work %></td>
+        <td><%= link_to 'Edit', edit_social_work_path(social_work) %></td>
+        <td><%= link_to 'Destroy', social_work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2><%= link_to 'New Social Work', new_social_work_path %></h2>

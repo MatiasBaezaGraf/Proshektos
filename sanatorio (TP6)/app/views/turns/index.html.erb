@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<h3><strong><%= link_to "Back", home_index_path %></strong></h3>
+
+<h1>Turns</h1>
+
+<p>
+  <h3>Medics: </h3>
+   <h3><% Medic.all.each_with_index do |b, index| %>
+    <%= link_to b.name, turns_path(:medic_id => b.id) %>
+    <% if (index) != Medic.all.count %>
+      <strong>  |  </strong>
+    <% end -%>
+  <% end -%>
+
+  <br>
+  <br>
+
+  <%= link_to "Clear", turns_path(:medic_id => nil) %>
+
+  <br>
+  <br>
+  </h3>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> Date </th>
+      <th> Time </th>
+      <th> Medic </th>
+      <th> Patient </th>
+      <th> Price </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @turns.each do |turn| %>
+      <tr>
+        <td><%= turn.date.strftime("%m/%d/%Y") %></td>
+        <td><%= turn.date.strftime("%I:%M%p") %></td>
+        <td><%= turn.medic.name %></td>
+        <td><%= turn.patient.name %></td>
+        <td><%= turn.price %></td>
+        <td><%= link_to 'Show', turn %></td>
+        <td><%= link_to 'Edit', edit_turn_path(turn) %></td>
+        <td><%= link_to 'Destroy', turn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2><%= link_to 'New Turn', new_turn_path %></h2>

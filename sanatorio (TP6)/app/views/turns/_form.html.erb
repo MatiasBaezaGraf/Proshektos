@@ -1,0 +1,32 @@
+<%= form_with(model: turn, local: true) do |form| %>
+  <% if turn.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(turn.errors.count, "error") %> prohibited this turn from being saved:</h2>
+
+      <ul>
+        <% turn.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.collection_select(:patient_id, @patients, :id, :name) %>
+  </div> 
+
+  <div class="field">
+    <%= form.label :medic_id %>
+    <%= form.collection_select(:medic_id, @medics, :id, :name) %>
+  </div> 
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date, start_year: Time.now.year, :minute_step => 30 %>
+  </div>
+ 
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

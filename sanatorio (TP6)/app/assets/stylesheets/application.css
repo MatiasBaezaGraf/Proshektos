@@ -1,0 +1,89 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body {
+  background-color:#0E0445;
+}
+
+table{
+  background-color:#1A0360;
+  border: 10px solid #0F0229;
+  color: #FFFFFF;
+  padding: 15px;
+}
+
+td {
+
+  padding: 15px;
+  text-align: left;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 15px;
+  color: white;
+}
+
+tr {
+	color: white;
+}
+
+thead{
+  text-align: left;
+  font-size: 25px;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+h1{
+	color: #FFFFFF;
+	font-size: 45px;
+	font-family: Impact, Charcoal, sans-serif; 
+}
+
+h3{
+	color: #FFFFFF;
+	font-size: 15px;
+	font-family: "Lucida Console", Courier, monospace; 
+}
+
+h2{
+	color: white;
+	font-size: 15px;
+	font-family: "Lucida Console", Courier, monospace;
+}
+
+strong{
+	color: white;
+	font-size: 15px;
+	font-family: "Lucida Console", Courier, monospace;
+}
+
+form{
+	font-family: "Lucida Console", Courier, monospace;
+  font-size: 15px;
+  color: white;
+}
+
+p{
+	font-family: "Lucida Console", Courier, monospace;
+  font-size: 15px;
+  color: white;
+}
+
+ul{
+	font-family: "Lucida Console", Courier, monospace;
+  font-size: 25px;
+  color: black;
+}
+
+  
