@@ -1,0 +1,82 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cars</h1>
+
+<form action="/cars" method="GET">
+  Color: <input type="text" name="color" value="<%= @color %>"/>
+
+  <%= @brand_id %>
+
+  Brand: 
+  <select name="brand_id">
+    
+    <% Brand.all.each_with_index do | b, index | %>
+    <%#= link_to b.name, cars_path(:brand_id => b.id) %>
+    <option value="<%= b.id %>" <% b.id.to_s == @brand_id ? "selected" : "" %>> <%= b.name%> </option>
+
+    <% end -%>
+
+  </select>
+  
+  Classification:
+  <select name = "classification_id">
+
+    <% Classification.all.each_with_index do | c, index | %>
+    <%#= link_to c.name, cars_path(:classification_id => c.id) %>
+    <option value="<%= c.id %>" <% c.id.to_s == @classification_id ? "selected" : "" %>> <%= c.name%> </option>
+
+    <% end -%>
+
+  </select>
+
+  Structure:
+  <select name = "structure_id">
+
+    <% Structure.all.each_with_index do | s, index | %>
+    <%#= link_to s.name, cars_path(:structure_id => s.id) %>
+    <option value="<%= s.id %>" <% s.id.to_s == @structure_id ? "selected" : "" %>> <%= s.name%> </option>
+
+    <% end -%>
+    
+  </select>
+
+  <input type="submit" />
+  
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nro. Puertas</th>
+      <th>Color</th>
+      <th>Modelo</th>
+      <th>Año</th>
+      <th>Marca</th>
+      <th>Clasificación</th>
+      <th>Estructura</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.doors %></td>
+        <td><%= car.color %></td>
+        <td><%= car.model %></td>
+        <td><%= car.year %></td>
+        <td><%= car.brand.name unless car.brand.nil? %></td>
+        <td><%= car.classification.name unless car.classification.nil? %></td>
+        <td><%= car.structure.name unless car.structure.nil? %></td>
+        <td><%= link_to 'Show', car %></td>
+        <td><%= link_to 'Edit', edit_car_path(car) %></td>
+        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Car', new_car_path %>
