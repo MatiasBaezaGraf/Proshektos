@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patent: MyString
+  brand: MyString
+  model: MyString
+  fuel_type: MyString
+  kilometers_last: 1
+  service: 1
+  price_day: 1
+
+two:
+  patent: MyString
+  brand: MyString
+  model: MyString
+  fuel_type: MyString
+  kilometers_last: 1
+  service: 1
+  price_day: 1

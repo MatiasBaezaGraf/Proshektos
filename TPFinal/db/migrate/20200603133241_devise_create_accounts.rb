@@ -6,9 +6,9 @@ class DeviseCreateAccounts < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :first_name,         null: false, default: ""
       t.string :last_name,          null: false, default: ""
-      t.string :adress,             null: false, default: ""
+      t.string :adress,             null: false, default: "" 
       t.string :card_type,          null: false, default: ""
-      t.integer :card_number,       null: false, default: ""
+      t.string :card_number,        null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 

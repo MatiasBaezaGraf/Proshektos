@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_204144) do
+ActiveRecord::Schema.define(version: 2020_06_03_201051) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.string "adress", default: "", null: false
     t.string "card_type", default: "", null: false
-    t.integer "card_number", null: false
+    t.string "card_number", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -29,4 +29,38 @@ ActiveRecord::Schema.define(version: 2020_06_02_204144) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
+  create_table "cars", force: :cascade do |t|
+    t.string "patent"
+    t.string "brand"
+    t.string "model"
+    t.string "fuel_type"
+    t.integer "kilometers_last"
+    t.integer "price_day"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "need_s"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.date "from"
+    t.date "to"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "car_id", null: false
+    t.string "payment"
+    t.index ["car_id"], name: "index_reservations_on_car_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.date "from"
+    t.date "to"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "car_id", null: false
+    t.index ["car_id"], name: "index_services_on_car_id"
+  end
+
+  add_foreign_key "reservations", "cars"
+  add_foreign_key "services", "cars"
 end

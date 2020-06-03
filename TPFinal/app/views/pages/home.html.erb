@@ -1,0 +1,21 @@
+<h1>Pages#home</h1>
+
+<% if current_account %>
+<nav class = "navbar">
+	<div class = "navbut">
+		<%= link_to "Log out", destroy_account_session_path, method: :delete, class: "ses" %>
+		<%= link_to "CARS", cars_url, class: "secondary-btns" %>
+		<%= link_to "RESERVATIONS", reservations_url, class: "secondary-btns" %>
+		<%= link_to "SERVICES", services_url, class: "secondary-btns" %>
+	</div>
+</nav>
+<% else %>
+	<%= link_to "Sign up", new_account_registration_path, class: "ses" %>
+	<%= link_to "Login", new_account_session_path, class: "ses" %>
+<% end %>
+
+
+
+
+
+
