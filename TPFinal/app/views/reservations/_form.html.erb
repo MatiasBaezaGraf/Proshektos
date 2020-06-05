@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+    <p class = "advise">After the return of a car, there's a two (2) day aconditioning perdiod in which it can't be reserved</p>
     <%= form.label :from %>
     <%= form.date_select :from %>
   </div>
@@ -27,6 +28,7 @@
   </div>
 
   <div class="field">
+    <p class = "advise">If you pay with credit you have 20% surcharge</p>
     <%= form.label :Payment_method %>
     <%= form.select(:payment, @payment_methods) %>
   </div> 

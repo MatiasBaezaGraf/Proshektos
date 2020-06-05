@@ -27,6 +27,9 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    @payment_methods = ["Cash", "Credit"]
+    @cars = Car.all
+    @reservation.price = @reservation.calculate_price
 
     respond_to do |format|
       if @reservation.save

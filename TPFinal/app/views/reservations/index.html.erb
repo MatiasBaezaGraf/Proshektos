@@ -7,6 +7,9 @@
     <tr>
       <th>From</th>
       <th>To</th>
+      <th>Car patent</th>
+      <th>Car brand</th>
+      <th>Car model</th>
       <th>Price</th>
       <th colspan="3"></th>
     </tr>
@@ -17,6 +20,9 @@
       <tr>
         <td><%= reservation.from %></td>
         <td><%= reservation.to %></td>
+        <td><%= reservation.car.patent %></td>
+        <td><%= reservation.car.brand %></td>
+        <td><%= reservation.car.model %></td>
         <td><%= reservation.price %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>

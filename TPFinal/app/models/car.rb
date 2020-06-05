@@ -15,5 +15,5 @@ class Car < ApplicationRecord
 			need_s = "no"
 		end
 		need_s
-	end
+	end		
 end

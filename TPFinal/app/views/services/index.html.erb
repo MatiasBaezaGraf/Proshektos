@@ -8,6 +8,8 @@
       <th>From</th>
       <th>To</th>
       <th>Car patent</th>
+      <th>Car brand</th>
+      <th>Car model</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,6 +19,9 @@
       <tr>
         <td><%= service.from %></td>
         <td><%= service.to %></td>
+        <td><%= service.car.patent %></td>
+        <td><%= service.car.brand %></td>
+        <td><%= service.car.model %></td>
         <td><%= link_to 'Show', service %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
