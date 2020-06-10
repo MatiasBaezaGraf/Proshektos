@@ -10,5 +10,22 @@
   <%= @service.to %>
 </p>
 
-<%= link_to 'Edit', edit_service_path(@service) %> |
+<p>
+  <strong>Kilometers:</strong>
+  <%= @service.kilometers %>
+</p>
+
+<p>
+  <strong>Car patent:</strong>
+  <%= @service.car.patent %>
+</p>
+
+<p>
+  <strong>Car brand:</strong>
+  <%= @service.car.brand %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_service_path(@service), if can? :edit, Reservation %> |
 <%= link_to 'Back', services_path %>

@@ -1,11 +1,17 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+  load_and_authorize_resource
 
   # GET /services
   # GET /services.json
-  def index
-    @services = Service.all
+  def index 
     #@services = @services.where(:car_id => params[:car_id]) unless params[:car_id].blank?
+    if params[:car_id]
+      @services = Service.where(:car_id => params[:car_id]) unless params[:car_id].blank?
+    else
+      @services = Service.all
+    end
   end
 
   # GET /services/1
@@ -73,6 +79,6 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:from, :to, :car_id)
+      params.require(:service).permit(:from, :to, :kilometers, :car_id)
     end
 end

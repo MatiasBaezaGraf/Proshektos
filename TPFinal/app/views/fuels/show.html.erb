@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fuel.name %>
+</p>
+
+<%= link_to 'Edit', edit_fuel_path(@fuel) if can? :edit, Fuel %> |
+<%= link_to 'Back', fuels_path %>

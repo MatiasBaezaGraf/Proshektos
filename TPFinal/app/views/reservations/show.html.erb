@@ -15,5 +15,5 @@
   <%= @reservation.price %>
 </p>
 
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Edit', edit_reservation_path(@reservation) if can? :edit, reservation%> |
 <%= link_to 'Back', reservations_path %>

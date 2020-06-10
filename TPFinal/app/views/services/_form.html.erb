@@ -21,6 +21,12 @@
     <%= form.collection_select(:car_id, @cars, :id, :patent) %>
   </div>
 
+  <div class="field">
+    <p class = "advise">Note: Every car has an integrated kilometer counter which is restarted after service. This field refers to kilometers in the moment of the service. If you are scheduling a service in the future, set this value to 0</p>
+    <%= form.label :Kilometer_counter %>
+    <%= form.number_field :kilometers %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

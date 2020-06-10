@@ -16,18 +16,13 @@
 </p>
 
 <p>
+  <strong>Model:</strong>
+  <%= @car.type.name %>
+</p>
+
+<p>
   <strong>Fuel type:</strong>
-  <%= @car.fuel_type %>
-</p>
-
-<p>
-  <strong>Kilometers last:</strong>
-  <%= @car.kilometers_last %>
-</p>
-
-<p>
-  <strong>Needs service?:</strong>
-  <%= @car.need_s %>
+  <%= @car.fuel.name %>
 </p>
 
 <p>
@@ -35,5 +30,5 @@
   <%= @car.price_day %>
 </p>
 
-<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Edit', edit_car_path(@car) if can? :edit, Car%> |
 <%= link_to 'Back', cars_path %>

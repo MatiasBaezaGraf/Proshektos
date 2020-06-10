@@ -27,13 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :fuel_type %>
-    <%= form.select(:fuel_type, @fuel) %>
+    <%= form.label :type_id %>
+    <%= form.collection_select(:type_id, Type.all, :id, :name ) %>
   </div>
 
   <div class="field">
-    <%= form.label :kilometers_from_last_service %>
-    <%= form.number_field :kilometers_last %>
+    <%= form.label :fuel_id %>
+    <%= form.collection_select(:fuel_id, Fuel.all, :id, :name ) %>
   </div>
 
   <div class="field">

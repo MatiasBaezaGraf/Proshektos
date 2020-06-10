@@ -1,17 +1,22 @@
-<h1>Pages#home</h1>
+<h1>Welcome</h1>
 
-<% if current_account %>
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+</head>
+
 <nav class = "navbar">
 	<div class = "navbut">
-		<%= link_to "Log out", destroy_account_session_path, method: :delete, class: "ses" %>
-		<%= link_to "CARS", cars_url, class: "secondary-btns" %>
-		<%= link_to "RESERVATIONS", reservations_url, class: "secondary-btns" %>
-		<%= link_to "SERVICES", services_url, class: "secondary-btns" %>
+		<%= link_to "CARS", cars_url, class: "secondary-btns" if can? :index, Car %>
+		<%= link_to "RESERVATIONS", reservations_url, class: "secondary-btns" if can? :index, Reservation %>
+		<%= link_to "SERVICES", services_url, class: "secondary-btns" if can? :index, Service %>
 	</div>
 </nav>
+
+<% if current_user %>
+	<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "secondary-btns" %>	
 <% else %>
-	<%= link_to "Sign up", new_account_registration_path, class: "ses" %>
-	<%= link_to "Login", new_account_session_path, class: "ses" %>
+	<%= link_to "Sign up", new_user_registration_path, class: "secondary-btns" %>
+	<%= link_to "Login", new_user_session_path, class: "secondary-btns" %>
 <% end %>
 
 

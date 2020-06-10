@@ -1,17 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <form action="/cars" method="GET">
-  Brand: <input type="text" name="brand" value="<%= @brand %>"/>
-  <input type="submit" />
-</form>
 
-<form action="/cars" method="GET">
-  Model: <input type="text" name="model" value="<%= @model %>"/>
-  <input type="submit" />
-</form>
+    <%= @fuel_id %>
+    Fuel type: 
+    <select name="fuel_id">
+      <option disabled selected value> -- select an option -- </option>    
+      <% Fuel.all.each_with_index do | f, index | %>
+        <option value="<%= f.id %>" <% f.id.to_s == @fuel_id ? "selected" : "" %>> <%= f.name%> </option>
+      <% end -%>
+    </select>
 
+    <br>
  
+    <%= @type_id %>
+    Classification: 
+    <select name="type_id">  
+      <option disabled selected value> -- select an option -- </option> 
+      <% Type.all.each_with_index do | t, index | %>
+        <option value="<%= t.id %>" <% t.id.to_s == @type_id ? "selected" : "" %>> <%= t.name%> </option>
+      <% end -%>
+    </select>
 
+    <br>
+
+  <input type="submit" />
+
+</form>
 
 <h1>Cars</h1>
 
@@ -21,9 +36,8 @@
       <th>Patent</th>
       <th>Brand</th>
       <th>Model</th>
+      <th>Classification</th>
       <th>Fuel type</th>
-      <th>Kilometers from last service</th>
-      <th>Needs service?</th>
       <th>Price per day</th>
       <th colspan="3"></th>
     </tr>
@@ -35,13 +49,14 @@
         <td><%= car.patent %></td>
         <td><%= car.brand %></td>
         <td><%= car.model %></td>
-        <td><%= car.fuel_type %></td>
-        <td><%= car.kilometers_last %></td>
-        <td><%= car.need_s %></td>
+        <td><%= car.type.name %></td>
+        <td><%= car.fuel.name %></td>
         <td><%= car.price_day %></td>
-        <td><%= link_to 'Show', car %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', car if can? :show, Car %></td>
+        <td><%= link_to 'Edit', edit_car_path(car) if can? :edit, Car %></td>
+        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }if can? :destroy, Car  %> </td> 
+        <td><%= link_to "History", services_path(:car_id => car.id) if can? :index, Service  %> 
+        </td>
       </tr>
     <% end %>
   </tbody>

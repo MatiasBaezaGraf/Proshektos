@@ -1,7 +1,7 @@
 class Service < ApplicationRecord
 	belongs_to :car
 
-	validates :from, presence: true
+	validates :from, :kilometers, presence: true
 
 	validate :calculate_to
 	validate :is_reserved

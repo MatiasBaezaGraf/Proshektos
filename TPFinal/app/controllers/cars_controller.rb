@@ -1,14 +1,17 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
 
   # GET /cars
   # GET /cars.json
   def index
 
     @cars = Car.all
+    @cars = @cars.where(:fuel_id => params[:fuel_id]) unless params[:fuel_id].blank?
     @cars = @cars.where(:brand => params[:brand]) unless params[:brand].blank?
     @cars = @cars.where(:model => params[:model]) unless params[:model].blank?
-    @brand = params[:brand] 
+    
   end
 
   # GET /cars/1
@@ -19,7 +22,6 @@ class CarsController < ApplicationController
   # GET /cars/new
   def new
     @car = Car.new
-    @fuel = ['Gasoline', 'Diesel', 'Biodiesel', 'Electric', 'CNG', 'Hybrid']
   end
 
   # GET /cars/1/edit
@@ -30,8 +32,6 @@ class CarsController < ApplicationController
   # POST /cars.json
   def create
     @car = Car.new(car_params)
-    @fuel = ['Gasoline', 'Diesel', 'Biodiesel', 'Electric', 'CNG', 'Hybrid']
-    @car.need_s = @car.service_need
 
     respond_to do |format|
       if @car.save
@@ -76,6 +76,6 @@ class CarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def car_params
-      params.require(:car).permit(:patent, :brand, :model, :fuel_type, :kilometers_last, :need_service, :price_day)
+      params.require(:car).permit(:patent, :brand, :model, :price_day, :fuel_id, :type_id)
     end
 end

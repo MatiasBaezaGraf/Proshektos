@@ -7,6 +7,7 @@
     <tr>
       <th>From</th>
       <th>To</th>
+      <th>Kilometers from service</th>
       <th>Car patent</th>
       <th>Car brand</th>
       <th>Car model</th>
@@ -19,16 +20,19 @@
       <tr>
         <td><%= service.from %></td>
         <td><%= service.to %></td>
+        <td><%= service.kilometers %></td>
         <td><%= service.car.patent %></td>
         <td><%= service.car.brand %></td>
         <td><%= service.car.model %></td>
-        <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', service if can? :show, Reservation%></td>
+        <td><%= link_to 'Edit', edit_service_path(service) if can? :edit, Reservation%></td>
+        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Reservation%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<p class = "advise">Note: Every car has an integrated kilometer counter which is restarted after service. To calculate a car's total kilometers, sum up every "kilometers from service" value for a specified car. Due to the fact that you can create services in the past, referring to which ones haven't been documented in this application, it's taken for granted that the needed data it's known with at least a minimal precision.        </p>
 
 <br>
 

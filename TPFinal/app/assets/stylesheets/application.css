@@ -1,3 +1,165 @@
+ body {
+  background-color:#ffffff;
+}
+
+h1{
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #424242;
+  color: white;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.navbut{
+ 	text-align: left;
+	color: white;
+}
+
+.secondary-btns{
+	background-color: #949494;
+	text-decoration: none;
+	color: white;
+	padding: 10px 24px;
+	border-radius: 2px;
+	transition-duration: 0.4s;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.secondary-btns:hover {
+  background-color: white; /* Green */
+  color: #949494;
+}
+
+.question-text{
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.question{
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.question:hover {
+	color: white;
+	transition-duration: 0.4s;
+}
+
+.ses{
+	background-color: #949494;
+	text-decoration: none;
+	color: white;
+	padding: 10px 24px;
+	border-radius: 2px;
+	transition-duration: 0.4s;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.login{
+	background-color: gray;
+	border-radius: 2px;
+	margin: auto;
+    width: 30%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.field input {
+	width: 70%;
+  	border-radius: 1px;
+  	border: none;
+  	background-color: #c2c2c2;
+  	font-size: 17px;
+  	padding: 10px;
+}
+
+.fiel input::placeholder{
+	color: lightgray;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.field select {
+	width: 70%;
+  	border-radius: 1px;
+  	border: none;
+  	background-color: #c3c3c3;
+  	font-size: 20px;
+  	padding: 10px;
+  	font-family: 'Montserrat', sans-serif;
+}
+
+
+
+.actions input {
+	width: 70%;
+    border: none;
+  	border-radius: 1px;
+  	margin-bottom: 10px;
+  	font-family: 'Montserrat', sans-serif;
+  	font-size: 20px;
+  	text-transform: uppercase;
+  	transition-duration: 0.4s;
+
+}
+
+.actions input:hover {
+	background-color: black; /* Green */
+  	color: white;
+}
+
+
+.titles{
+	font-size: 40px;
+	color: white;
+}
+
+.up{
+	background-color: darkgray;
+}
+
+.back-but{
+	background-color: #4f4f4f;
+	text-decoration: none;
+	color: white;
+	padding: 5px 5px;
+	border-radius: 2px;
+	transition-duration: 0.4s;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.back-but:hover {
+  background-color: white; /* Green */
+  color: black;
+}
+
+.error{
+	background-color: darkred;
+	color: lightgray;
+}
+
+.error-explanation{
+	color: red;
+}
+
+
+
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
